@@ -1,0 +1,20 @@
+num = int(input())
+total = 0
+i = num
+while i != 0:
+    if i >= 25:
+        i -= 25
+        total += 1
+    if i >= 20 and i < 25:
+        i -= 10
+        total += 1
+    if i >= 10 < 20:
+        i -= 10
+        total += 1
+    if i >= 5 < 10:
+        i -= 5
+        total += 1
+    if i >= 1 < 5:
+        i -= 1
+        total += 1
+print(total)
