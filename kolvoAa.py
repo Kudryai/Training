@@ -1,0 +1,6 @@
+n = input()
+n = n.upper()
+print('Аденин:',n.count('А'))
+print('Гуанин:',n.count('Г'))
+print('Цитозин',n.count('Ц'))
+print('Тиамин', n.count('Т'))
