@@ -1,4 +1,4 @@
-s, q = [c for c in input()],[c for c in input()]
+s, q = [c for c in input()],[c for c in input()] #Необходимо дополнительно покрыть тестами
 lst = []
 a = 0
 b = 0
