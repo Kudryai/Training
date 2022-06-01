@@ -116,6 +116,9 @@ def answer(dig,low,upp,pun):
                         a = 4
                         pun = check(pun,a)
         if a == 4:
-            return generat(dig,low,upp,pun)
+            if dig == False and low == False and upp == False and pun == False:
+                return generat(True,True,True,True)
+            else:
+                return generat(dig,low,upp,pun)
 
 answer(0,0,0,0)
