@@ -25,15 +25,22 @@ def check_num(num):
     else:
         return False
 
+
 while True:    
     num = input('Сколько паролей необходимо? (Максимально - 20):')
     num2 = check_num(num)
+    if num2 != True:
+        print('Неправильный ввод')
     if num2 == True:
         break
+
+
 while len(longlst) != int(num):
     for i in range(1,int(num)+1):
         long = input(f'Какая длинна пароля № {i}: ')
-        long2 = check_num(long)
+        long2 = check_num(long)        
+        if long2 != True:
+            print('Неправильный ввод')
         if long2 == True:
             longlst.append(long)
     if len(longlst) == num:
@@ -64,7 +71,6 @@ def generat(usl1,usl2,usl3,usl4):
                         global stop
                         stop = 0
                         
-
 
 def answer(dig,low,upp,pun):
     while stop == 1:
