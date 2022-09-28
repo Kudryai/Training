@@ -1,18 +1,19 @@
 from datetime import datetime,timedelta
 
-start = datetime.strptime(input(),'%d.%m.%Y')
-stop = datetime.strptime(input(),'%d.%m.%Y')
-result = []
-ok = ''
-while ok != 'ok':
-    if (start.day + start.month) % 2 != 0:
-        start = start
-        ok = 'ok'
-    else:
-        start = start + timedelta(days=1)
-start = start.toordinal()
-stop = stop.toordinal()
-for i in range(start,stop+1,3):
-    if datetime.fromordinal(i).weekday() != 0 and datetime.fromordinal(i).weekday() != 3:
-        result.append(datetime.fromordinal(i).strftime('%d.%m.%Y'))
-print(*result, sep = '\n')
+date_today = datetime.strptime(input(),'%d.%m.%Y')
+n = int(input())
+name = []
+res = {}
+
+for i in range(n):
+    name.append(input().split())
+    name[i][2] = datetime.strptime(name[i][2], '%d.%m.%Y')
+for j in range(len(name)):
+    for k in range(8):
+        if name[j][2].day == (date_today + timedelta(days=k)).day and name[j][2].month == (date_today + timedelta(days=k)).month:
+            res[name[j][2]] = res.get(name[j][2], ' '.join(name[j][:2]))
+res = sorted(res.items())
+if len(res) == 0:
+    print('Дни рождения не планируются')
+else:
+    print(res[0][2])
