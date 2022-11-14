@@ -1,12 +1,17 @@
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 import calendar 
 
 
-def get_days_in_month(year, month):
-    dates = datetime.strptime(f'{year} {month}', '%Y %B')
-    rang = calendar.monthrange(2022, 1)
+def get_all_mondays(year):
     result = []
-    for i in range(1,rang[1]+1):
-        result.append(date(dates.year, dates.month, i))
+    date = datetime(year, 1, 1)
+    for i in range(366):
+        if date.year != year+1:
+            if calendar.weekday(date.year, date.month, date.day) == 0:
+                result.append(datetime.date(date))
+        date += timedelta(days=1)
     return result
 
+
+
+print(get_all_mondays(1353))
